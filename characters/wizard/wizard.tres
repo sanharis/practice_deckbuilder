@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=6 format=3 uid="uid://c5hvbwergp70c"]
+
+[ext_resource type="Texture2D" uid="uid://dxg7y1wlh86kj" path="res://art/tile_0100.png" id="1_3268s"]
+[ext_resource type="Script" path="res://custom_resources/character_stats.gd" id="1_sv5sd"]
+[ext_resource type="Resource" uid="uid://babdyy6bgfgfx" path="res://characters/wizard/wizard_draft_cards.tres" id="2_bytwl"]
+[ext_resource type="Resource" uid="uid://vwiq2boynsi5" path="res://characters/wizard/wizard_starting_deck.tres" id="3_trvc3"]
+[ext_resource type="Resource" uid="uid://b4o3ew7831em7" path="res://relics/coupons.tres" id="5_qsof4"]
+
+[resource]
+script = ExtResource("1_sv5sd")
+character_name = "Wizard"
+description = "Wanted to be a stay at home wife, weapons manufacturing is apparently easier than cooking"
+portrait = ExtResource("1_3268s")
+draft_cards = ExtResource("2_bytwl")
+starting_deck = ExtResource("3_trvc3")
+cards_per_turn = 5
+max_mana = 4
+starting_relic = ExtResource("5_qsof4")
+max_health = 20
+art = ExtResource("1_3268s")

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://3rugowasdciy"]
+
+[ext_resource type="Texture2D" uid="uid://c7xx3uproscj" path="res://art/tile_0128.png" id="1_142pd"]
+[ext_resource type="Script" path="res://relics/plain_water.gd" id="2_w3e7k"]
+
+[resource]
+script = ExtResource("2_w3e7k")
+base_healing = 5
+relic_name = "Literally Just Water"
+id = "plain_water"
+type = 3
+character_type = 0
+starter = false
+icon = ExtResource("1_142pd")
+tooltip = "[center][color=yellow]Literally just Water[/color]
+Heal 5 hp at the end of every combat[/center]"

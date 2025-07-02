@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnnnd56lgifc6"]
+
+[ext_resource type="Script" path="res://scenes/win_screen/win_screen.gd" id="1_savqj"]
+[ext_resource type="Texture2D" uid="uid://dpfqok8tuy4r7" path="res://art/tile_0084.png" id="3_4fukf"]
+
+[sub_resource type="Gradient" id="Gradient_krdgw"]
+colors = PackedColorArray(0.17767, 0.460928, 0.45331, 1, 0.068483, 0.0184055, 0.195457, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bnll8"]
+gradient = SubResource("Gradient_krdgw")
+width = 16
+
+[sub_resource type="LabelSettings" id="LabelSettings_ucuns"]
+line_spacing = 5.0
+font_size = 11
+shadow_size = 4
+shadow_color = Color(0.392157, 0, 0, 0.392157)
+
+[node name="WinScreen" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_savqj")
+message = "You killed your boss and got %s gold from your killing spree
+You can retire now!"
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_bnll8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -63.0
+offset_top = 13.0
+offset_right = 117.0
+offset_bottom = 143.0
+grow_horizontal = 2
+theme_override_constants/separation = 5
+
+[node name="Message" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 65)
+layout_mode = 2
+text = "You killed your boss and got %s gold from your killing spree
+You can retire now!"
+label_settings = SubResource("LabelSettings_ucuns")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 18
+text = "LET'S GO
+GAMBLING"
+
+[node name="CharPortrait" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+offset_left = 20.0
+offset_top = 69.0
+offset_right = 84.0
+offset_bottom = 133.0
+texture = ExtResource("3_4fukf")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

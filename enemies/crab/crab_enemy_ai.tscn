@@ -1,0 +1,49 @@
+[gd_scene load_steps=14 format=3 uid="uid://cue36pe8prkl6"]
+
+[ext_resource type="Script" path="res://scenes/enemy/enemy_action_picker.gd" id="1_qukea"]
+[ext_resource type="Script" path="res://enemies/crab/crab_attack_action.gd" id="2_d07q8"]
+[ext_resource type="Script" path="res://enemies/crab/crab_block_action.gd" id="3_kxvq3"]
+[ext_resource type="Texture2D" uid="uid://bfvi02kojsa00" path="res://art/tile_0103.png" id="3_n7t5u"]
+[ext_resource type="Script" path="res://enemies/crab/crab_big_block_action.gd" id="4_rbp7h"]
+[ext_resource type="Script" path="res://custom_resources/intent.gd" id="4_y4baw"]
+[ext_resource type="AudioStream" uid="uid://de2ryat1pxq6" path="res://art/enemy_attack.ogg" id="5_jddkl"]
+[ext_resource type="Texture2D" uid="uid://bi6pfjs32f820" path="res://art/tile_0101.png" id="6_m0j7f"]
+[ext_resource type="Texture2D" uid="uid://oe7v35ii8vrs" path="res://art/tile_0102.png" id="8_diqbm"]
+[ext_resource type="AudioStream" uid="uid://k8m4o3hlwm7l" path="res://art/enemy_block.ogg" id="8_ribla"]
+
+[sub_resource type="Resource" id="Resource_5v2nr"]
+script = ExtResource("4_y4baw")
+base_text = "%s"
+icon = ExtResource("3_n7t5u")
+
+[sub_resource type="Resource" id="Resource_b4s37"]
+script = ExtResource("4_y4baw")
+base_text = "6"
+icon = ExtResource("6_m0j7f")
+
+[sub_resource type="Resource" id="Resource_wwrbh"]
+script = ExtResource("4_y4baw")
+base_text = "15"
+icon = ExtResource("8_diqbm")
+
+[node name="CrabEnemyAI" type="Node"]
+script = ExtResource("1_qukea")
+
+[node name="AttackAction" type="Node" parent="."]
+script = ExtResource("2_d07q8")
+intent = SubResource("Resource_5v2nr")
+sound = ExtResource("5_jddkl")
+type = 1
+chance_weight = 1.0
+
+[node name="BlockAction" type="Node" parent="."]
+script = ExtResource("3_kxvq3")
+intent = SubResource("Resource_b4s37")
+sound = ExtResource("8_ribla")
+type = 1
+chance_weight = 1.0
+
+[node name="BlockActionBEEG" type="Node" parent="."]
+script = ExtResource("4_rbp7h")
+intent = SubResource("Resource_wwrbh")
+sound = ExtResource("8_ribla")

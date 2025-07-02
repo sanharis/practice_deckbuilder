@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b4o3ew7831em7"]
+
+[ext_resource type="Texture2D" uid="uid://bhnbb6ffk4put" path="res://art/coupons.png" id="1_ixhdv"]
+[ext_resource type="Script" path="res://relics/coupons.gd" id="2_p5d7w"]
+
+[resource]
+script = ExtResource("2_p5d7w")
+base_discount = 0.4
+relic_name = "Coupons"
+id = "coupons"
+type = 4
+character_type = 0
+starter = false
+icon = ExtResource("1_ixhdv")
+tooltip = "[center][color=yellow]Coupons[/color]
+All items in the shop have a 40% discount[/center]"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://j7uafl6w44vo"]
+
+[ext_resource type="Texture2D" uid="uid://cn2c1psh561cc" path="res://art/tile_0127.png" id="1_i4m26"]
+[ext_resource type="Script" path="res://relics/virgin_blood.gd" id="2_5kryg"]
+
+[resource]
+script = ExtResource("2_5kryg")
+base_mana = 1
+relic_name = "Extra Virgin Blood"
+id = "virgin_blood"
+type = 2
+character_type = 0
+starter = false
+icon = ExtResource("1_i4m26")
+tooltip = "[center][color=yellow]Extra Virgin Blood[/color]
+At the beginning of combat gain 1 mana[/center]"

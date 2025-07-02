@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://bmlbd3meh0v45"]
+
+[ext_resource type="Theme" uid="uid://c32pemj3n065k" path="res://main_theme.tres" id="1_5mq1s"]
+[ext_resource type="Script" path="res://scenes/ui/card_visuals.gd" id="2_a7mu5"]
+[ext_resource type="StyleBox" uid="uid://c4nugs2gwb7c3" path="res://scenes/card_ui/card_base_stylebox.tres" id="2_tflqb"]
+[ext_resource type="Resource" uid="uid://lwnl6y16fb18" path="res://characters/wizard/cards/rare_heal.tres" id="3_bxmgr"]
+[ext_resource type="Texture2D" uid="uid://dojlh80rte165" path="res://art/tile_0107.png" id="3_vse3l"]
+[ext_resource type="Texture2D" uid="uid://b1u16okm1xdwy" path="res://art/rarity.png" id="4_4kela"]
+
+[node name="CardVisuals" type="Control"]
+custom_minimum_size = Vector2(25, 30)
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_5mq1s")
+script = ExtResource("2_a7mu5")
+card = ExtResource("3_bxmgr")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("2_tflqb")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = -2.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_vse3l")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Cost" type="Label" parent="."]
+layout_mode = 1
+offset_right = 10.0
+offset_bottom = 10.0
+text = "9"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rarity" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("4_4kela")
+expand_mode = 1
+stretch_mode = 5

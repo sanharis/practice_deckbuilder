@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cs0a6v00vuldc"]
+
+[ext_resource type="Texture2D" uid="uid://dytq0eumwvky6" path="res://art/tile_0074.png" id="1_82p7b"]
+[ext_resource type="Script" path="res://relics/anvil.gd" id="2_uej15"]
+
+[resource]
+script = ExtResource("2_uej15")
+base_block = 3
+relic_name = "Anvil"
+id = "anvil"
+type = 1
+character_type = 0
+starter = false
+icon = ExtResource("1_82p7b")
+tooltip = "[center][color=yellow]Anvil[/color]
+Gain 3 block at the end of your turn[/center]"

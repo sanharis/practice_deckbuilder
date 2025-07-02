@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=6 format=3 uid="uid://brq7ac8qocffv"]
+
+[ext_resource type="Texture2D" uid="uid://cpydvk8mq66o5" path="res://art/tile_0087.png" id="1_2tao8"]
+[ext_resource type="Script" path="res://custom_resources/character_stats.gd" id="1_bgdr1"]
+[ext_resource type="Resource" uid="uid://b1bms121y017u" path="res://characters/warrior/warrior_draft_cards.tres" id="2_5en82"]
+[ext_resource type="Resource" uid="uid://cg2v3ovc144lk" path="res://characters/warrior/warrior_starting_deck.tres" id="3_xx125"]
+[ext_resource type="Resource" uid="uid://3rugowasdciy" path="res://relics/plain_water.tres" id="5_dwut1"]
+
+[resource]
+script = ExtResource("1_bgdr1")
+character_name = "Warrior"
+description = "Wanted to become a knight to retire early, currently working full time at 65 years old"
+portrait = ExtResource("1_2tao8")
+draft_cards = ExtResource("2_5en82")
+starting_deck = ExtResource("3_xx125")
+cards_per_turn = 4
+max_mana = 3
+starting_relic = ExtResource("5_dwut1")
+max_health = 35
+art = ExtResource("1_2tao8")

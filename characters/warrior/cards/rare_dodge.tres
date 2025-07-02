@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dipsotn76vonf"]
+
+[ext_resource type="Script" path="res://characters/warrior/cards/rare_dodge.gd" id="1_7ky88"]
+[ext_resource type="Texture2D" uid="uid://cuwp2gspo7hpx" path="res://art/tile_0060_bis.png" id="1_yplay"]
+[ext_resource type="AudioStream" uid="uid://de2ryat1pxq6" path="res://art/enemy_attack.ogg" id="3_4ngis"]
+
+[resource]
+script = ExtResource("1_7ky88")
+id = "rare_dodge"
+type = 1
+rarity = 2
+target = 0
+cost = 2
+exhaust = false
+icon = ExtResource("1_yplay")
+tooltip_text = "[center]Gain 2 [color=aquamarine]Dodge[/color][/center]"
+sound = ExtResource("3_4ngis")

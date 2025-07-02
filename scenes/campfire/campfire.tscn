@@ -1,0 +1,268 @@
+[gd_scene load_steps=17 format=3 uid="uid://c1mfqdei2xke"]
+
+[ext_resource type="Script" path="res://scenes/campfire/campfire.gd" id="1_xr3gc"]
+[ext_resource type="Texture2D" uid="uid://b1u16okm1xdwy" path="res://art/rarity.png" id="2_3q28c"]
+[ext_resource type="Resource" uid="uid://brq7ac8qocffv" path="res://characters/warrior/warrior.tres" id="2_b8oxs"]
+
+[sub_resource type="Gradient" id="Gradient_pvm0h"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ifhaj"]
+gradient = SubResource("Gradient_pvm0h")
+
+[sub_resource type="Gradient" id="Gradient_gtood"]
+offsets = PackedFloat32Array(0, 0.836364)
+colors = PackedColorArray(0.68901, 0.327469, 0.120526, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5pjaq"]
+gradient = SubResource("Gradient_gtood")
+fill = 1
+fill_from = Vector2(0.2, 0.9)
+fill_to = Vector2(0.8, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_urh3l"]
+offsets = PackedFloat32Array(0, 0.141844, 0.851064, 0.943262, 1)
+colors = PackedColorArray(0.818901, 0.887981, 0.834439, 1, 0.909293, 0.873853, 0.241161, 1, 0.821785, 0.208453, 0.107796, 1, 0.282353, 0.27451, 0.254902, 0.392157, 0.258824, 0.258824, 0.258824, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d1qpm"]
+gradient = SubResource("Gradient_urh3l")
+
+[sub_resource type="Curve" id="Curve_y5yoo"]
+_data = [Vector2(0.003125, 0.501887), 0.0, 0.0, 0, 0, Vector2(0.146875, 1), -0.77283, -0.77283, 0, 0, Vector2(0.721875, 1), -0.805031, -0.805031, 0, 0, Vector2(1, 0.501887), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_xy5ec"]
+curve = SubResource("Curve_y5yoo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5yyyo"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 0.5, 0)
+emission_shape = 1
+emission_sphere_radius = 30.0
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, -1, 0)
+spread = 10.0
+initial_velocity_min = 50.0
+initial_velocity_max = 70.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 30.0
+linear_accel_max = 130.0
+damping_min = 30.0
+damping_max = 100.0
+scale_curve = SubResource("CurveTexture_xy5ec")
+color = Color(1, 1, 1, 0.392157)
+color_ramp = SubResource("GradientTexture1D_d1qpm")
+
+[sub_resource type="LabelSettings" id="LabelSettings_h7yn4"]
+font_size = 12
+
+[sub_resource type="Animation" id="Animation_yv82s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Particles/GPUParticles2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Particles/GPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UILayer/UI:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background/Light:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_djhkd"]
+resource_name = "fade_out"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Particles/GPUParticles2D:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Particles/GPUParticles2D:emitting")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UILayer/UI:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_on_fade_out_finished"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Background/Light:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k74yj"]
+_data = {
+"RESET": SubResource("Animation_yv82s"),
+"fade_out": SubResource("Animation_djhkd")
+}
+
+[node name="Campfire" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_xr3gc")
+char_stats = ExtResource("2_b8oxs")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Background" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_ifhaj")
+
+[node name="Light" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_5pjaq")
+
+[node name="Particles" type="CanvasLayer" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Particles"]
+position = Vector2(68, 126)
+amount = 400
+process_material = SubResource("ParticleProcessMaterial_5yyyo")
+texture = ExtResource("2_3q28c")
+lifetime = 1.1
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="VBoxContainer" parent="UILayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -27.5
+offset_right = 88.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="UILayer/UI"]
+layout_mode = 2
+text = "Campfire"
+label_settings = SubResource("LabelSettings_h7yn4")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="UILayer/UI"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Rest" type="Button" parent="UILayer/UI"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 15)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Rest"
+
+[node name="Description" type="Label" parent="UILayer/UI"]
+layout_mode = 2
+text = "Restore 10 HP"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k74yj")
+}
+
+[connection signal="pressed" from="UILayer/UI/Rest" to="." method="_on_rest_pressed"]

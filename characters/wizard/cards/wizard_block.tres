@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bofcuaotjqva3"]
+
+[ext_resource type="Texture2D" uid="uid://bi6pfjs32f820" path="res://art/tile_0101.png" id="1_602f2"]
+[ext_resource type="Script" path="res://characters/warrior/cards/warrior_block.gd" id="2_nff1w"]
+[ext_resource type="AudioStream" uid="uid://df64e7qat73gs" path="res://art/block.ogg" id="3_qkj3q"]
+
+[resource]
+script = ExtResource("2_nff1w")
+id = "wizard_block"
+type = 1
+rarity = 0
+target = 0
+cost = 1
+exhaust = false
+icon = ExtResource("1_602f2")
+tooltip_text = "[center]Gain [color=AQUA]%s[/color] Block[/center]"
+sound = ExtResource("3_qkj3q")

@@ -1,0 +1,147 @@
+[gd_scene load_steps=13 format=3 uid="uid://bdrhal01whun"]
+
+[ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_83s2u"]
+[ext_resource type="Texture2D" uid="uid://dxg7y1wlh86kj" path="res://art/tile_0100.png" id="1_mkw6i"]
+[ext_resource type="Resource" uid="uid://5amfdq7d808g" path="res://scenes/run/run_startup.tres" id="2_ia08x"]
+[ext_resource type="Texture2D" uid="uid://cpydvk8mq66o5" path="res://art/tile_0087.png" id="2_mclu5"]
+[ext_resource type="Texture2D" uid="uid://bv2wpbh3uv4x3" path="res://art/tile_0109.png" id="3_64ttb"]
+[ext_resource type="Texture2D" uid="uid://d2vujk8wvu6ia" path="res://art/tile_0123.png" id="4_x8lh6"]
+[ext_resource type="Texture2D" uid="uid://1u3b3hwqd8yh" path="res://art/tile_0110.png" id="5_2vnwt"]
+[ext_resource type="Texture2D" uid="uid://ukld5o613i0a" path="res://art/tile_0122.png" id="5_a8ne5"]
+[ext_resource type="Texture2D" uid="uid://con6y7mc74c5a" path="res://art/tile_0120.png" id="6_scfo1"]
+
+[sub_resource type="Gradient" id="Gradient_krdgw"]
+colors = PackedColorArray(0.17767, 0.460928, 0.45331, 1, 0.068483, 0.0184055, 0.195457, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bnll8"]
+gradient = SubResource("Gradient_krdgw")
+width = 16
+
+[sub_resource type="LabelSettings" id="LabelSettings_0f34i"]
+line_spacing = 5.0
+shadow_size = 4
+shadow_color = Color(0.392157, 0, 0, 0.392157)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_83s2u")
+run_startup = ExtResource("2_ia08x")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_bnll8")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -58.0
+offset_right = 96.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Slay the Spier Clone
+Number 17"
+label_settings = SubResource("LabelSettings_0f34i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -5.0
+offset_right = 30.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Continue"
+
+[node name="NewRunButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "New Run"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "GTFO"
+
+[node name="Sprites" type="CanvasLayer" parent="."]
+
+[node name="Wizard" type="Sprite2D" parent="Sprites"]
+position = Vector2(29, 89)
+scale = Vector2(2, 2)
+texture = ExtResource("1_mkw6i")
+
+[node name="Warrior" type="Sprite2D" parent="Sprites"]
+position = Vector2(54, 107)
+scale = Vector2(2, 2)
+texture = ExtResource("2_mclu5")
+
+[node name="Cyclops" type="Sprite2D" parent="Sprites"]
+modulate = Color(0.196078, 0.196078, 0.196078, 1)
+position = Vector2(255, 81)
+scale = Vector2(5, 5)
+texture = ExtResource("3_64ttb")
+flip_h = true
+
+[node name="Enemy1" type="Sprite2D" parent="Sprites"]
+modulate = Color(0.588235, 0.588235, 0.588235, 1)
+position = Vector2(241, 116)
+scale = Vector2(2, 2)
+texture = ExtResource("4_x8lh6")
+
+[node name="Enemy5" type="Sprite2D" parent="Sprites"]
+modulate = Color(0.784314, 0.784314, 0.784314, 1)
+position = Vector2(213, 123)
+scale = Vector2(2, 2)
+texture = ExtResource("5_a8ne5")
+
+[node name="Enemy2" type="Sprite2D" parent="Sprites"]
+position = Vector2(182, 112)
+scale = Vector2(2, 2)
+texture = ExtResource("5_2vnwt")
+
+[node name="Enemy3" type="Sprite2D" parent="Sprites"]
+modulate = Color(0.588235, 0.588235, 0.588235, 1)
+position = Vector2(218, 63)
+scale = Vector2(2, 2)
+texture = ExtResource("6_scfo1")
+
+[node name="Enemy4" type="Sprite2D" parent="Sprites"]
+modulate = Color(0.784314, 0.784314, 0.784314, 1)
+position = Vector2(198, 78)
+scale = Vector2(2, 2)
+texture = ExtResource("6_scfo1")
+
+[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/NewRunButton" to="." method="_on_new_run_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_pressed"]

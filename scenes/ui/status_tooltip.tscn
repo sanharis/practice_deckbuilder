@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://pqvok2loq4x0"]
+
+[ext_resource type="Texture2D" uid="uid://byxontumpc0xw" path="res://art/kenney_food_expansion/tile_0000.png" id="1_n83ns"]
+[ext_resource type="Script" path="res://scenes/ui/status_tooltip.gd" id="1_s2abr"]
+
+[node name="StatusTooltip" type="HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+offset_right = 150.0
+offset_bottom = 24.0
+theme_override_constants/separation = 5
+script = ExtResource("1_s2abr")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture = ExtResource("1_n83ns")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "TEXTO, le bigge Texto. La textualificazao. Zaoooo. Merde necesito MAIS TEXTOO. DAME MAAAAIISSSS TEXTOOOOO"
+fit_content = true

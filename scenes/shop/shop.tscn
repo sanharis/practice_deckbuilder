@@ -1,0 +1,208 @@
+[gd_scene load_steps=23 format=3 uid="uid://ceifxviweusrh"]
+
+[ext_resource type="Script" path="res://scenes/shop/shop.gd" id="1_n3r7d"]
+[ext_resource type="Texture2D" uid="uid://bj3im6egs4wxx" path="res://art/tile_0086.png" id="2_7i36u"]
+[ext_resource type="Script" path="res://custom_resources/relic.gd" id="2_8cy0d"]
+[ext_resource type="Texture2D" uid="uid://bfnvtn0lf1fb3" path="res://art/shopkeeper_blink.png" id="3_lqx4l"]
+[ext_resource type="Resource" uid="uid://cs0a6v00vuldc" path="res://relics/anvil.tres" id="3_wx88g"]
+[ext_resource type="Resource" uid="uid://b4o3ew7831em7" path="res://relics/coupons.tres" id="4_e1u5u"]
+[ext_resource type="PackedScene" uid="uid://cfwax8ph1glth" path="res://scenes/shop/shop_card.tscn" id="4_h244u"]
+[ext_resource type="PackedScene" uid="uid://dbxl6s6inosxm" path="res://scenes/shop/shop_relic.tscn" id="5_0hotp"]
+[ext_resource type="Resource" uid="uid://dsox8olydx7qh" path="res://relics/explosive_barrel.tres" id="5_8hty6"]
+[ext_resource type="PackedScene" uid="uid://bdql5bjotafb7" path="res://scenes/ui/card_tooltip_popup.tscn" id="5_tw1o7"]
+[ext_resource type="Resource" uid="uid://3rugowasdciy" path="res://relics/plain_water.tres" id="6_ut7e4"]
+[ext_resource type="Resource" uid="uid://j7uafl6w44vo" path="res://relics/virgin_blood.tres" id="7_iyl2r"]
+[ext_resource type="PackedScene" uid="uid://b1fma6b5rc6ta" path="res://scenes/modifier_handler/modifier_handler.tscn" id="13_ejixs"]
+[ext_resource type="PackedScene" uid="uid://b0afjxln26tvg" path="res://scenes/modifier_handler/modifier.tscn" id="14_hrljm"]
+
+[sub_resource type="Gradient" id="Gradient_4rii1"]
+offsets = PackedFloat32Array(0, 0.836364)
+colors = PackedColorArray(0.972658, 0.657071, 0.347918, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_du2ns"]
+gradient = SubResource("Gradient_4rii1")
+fill_from = Vector2(1, 0.9)
+fill_to = Vector2(0.6, 0.3)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_fhhca"]
+colors = PackedColorArray(0.215686, 0.372549, 0.368627, 0.6, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qjqpc"]
+gradient = SubResource("Gradient_fhhca")
+
+[sub_resource type="Animation" id="Animation_wuxar"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShopKeeper:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_7i36u")]
+}
+
+[sub_resource type="Animation" id="Animation_0paa5"]
+resource_name = "blink"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShopKeeper:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_lqx4l"), ExtResource("2_7i36u")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cpqj8"]
+_data = {
+"RESET": SubResource("Animation_wuxar"),
+"blink": SubResource("Animation_0paa5")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_acvb8"]
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_n3r7d")
+shop_relics = Array[ExtResource("2_8cy0d")]([ExtResource("3_wx88g"), ExtResource("4_e1u5u"), ExtResource("5_8hty6"), ExtResource("6_ut7e4"), ExtResource("7_iyl2r")])
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Light" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_du2ns")
+
+[node name="Background" type="TextureRect" parent="Background"]
+modulate = Color(1, 1, 1, 0.588235)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_qjqpc")
+
+[node name="Decor" type="CanvasLayer" parent="."]
+
+[node name="ShopKeeper" type="TextureRect" parent="Decor"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = -95.0
+offset_right = 95.0
+offset_bottom = -15.0
+grow_vertical = 0
+texture = ExtResource("2_7i36u")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BLINKMOTHERFUCKER" type="AnimationPlayer" parent="Decor"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_cpqj8")
+}
+
+[node name="Timer" type="Timer" parent="Decor"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="BackButton" type="Button" parent="UILayer"]
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 55.0
+offset_bottom = 29.0
+text = "Leave
+"
+
+[node name="Title" type="Label" parent="UILayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.5
+offset_top = 8.0
+offset_right = 21.5
+offset_bottom = 25.0
+grow_horizontal = 2
+text = "Shop"
+label_settings = SubResource("LabelSettings_acvb8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShopContent" type="VBoxContainer" parent="UILayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -111.0
+offset_right = -10.0
+offset_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Cards" type="HBoxContainer" parent="UILayer/ShopContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="ShopCard" parent="UILayer/ShopContent/Cards" instance=ExtResource("4_h244u")]
+layout_mode = 2
+
+[node name="ShopCard2" parent="UILayer/ShopContent/Cards" instance=ExtResource("4_h244u")]
+layout_mode = 2
+
+[node name="ShopCard3" parent="UILayer/ShopContent/Cards" instance=ExtResource("4_h244u")]
+layout_mode = 2
+
+[node name="Relics" type="HBoxContainer" parent="UILayer/ShopContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="ShopRelic" parent="UILayer/ShopContent/Relics" instance=ExtResource("5_0hotp")]
+layout_mode = 2
+
+[node name="ShopRelic2" parent="UILayer/ShopContent/Relics" instance=ExtResource("5_0hotp")]
+layout_mode = 2
+
+[node name="ShopRelic3" parent="UILayer/ShopContent/Relics" instance=ExtResource("5_0hotp")]
+layout_mode = 2
+
+[node name="CardTooltipPopup" parent="UILayer" instance=ExtResource("5_tw1o7")]
+unique_name_in_owner = true
+visible = false
+background_color = Color(0, 0.0392157, 0.117647, 0.784314)
+
+[node name="ModifierHandler" parent="." instance=ExtResource("13_ejixs")]
+
+[node name="ShopCostModifier" parent="ModifierHandler" instance=ExtResource("14_hrljm")]
+type = 3
+
+[connection signal="pressed" from="UILayer/BackButton" to="." method="_on_back_button_pressed"]

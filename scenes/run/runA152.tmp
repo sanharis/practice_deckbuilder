@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://bsgr3k1pbboxv"]
+
+[ext_resource type="Script" path="res://scenes/run/run.gd" id="1_4767v"]
+[ext_resource type="PackedScene" uid="uid://b4vdwqioo88xi" path="res://scenes/map/map.tscn" id="1_lovcu"]
+[ext_resource type="Resource" uid="uid://5amfdq7d808g" path="res://scenes/run/run_startup.tres" id="2_bo7nb"]
+[ext_resource type="PackedScene" uid="uid://bypkik35aib5j" path="res://scenes/ui/card_pile_opener.tscn" id="4_1gf2n"]
+[ext_resource type="PackedScene" uid="uid://bi2c7v47u4tih" path="res://scenes/ui/health_ui.tscn" id="4_pygve"]
+[ext_resource type="PackedScene" uid="uid://06g5cws108ic" path="res://scenes/ui/gold_ui.tscn" id="4_wul06"]
+[ext_resource type="Texture2D" uid="uid://dcjvr82aqsosk" path="res://art/deck.png" id="5_udrlw"]
+[ext_resource type="PackedScene" uid="uid://bbiwthqgl7q0w" path="res://scenes/ui/card_pile_view.tscn" id="6_bkg1n"]
+[ext_resource type="PackedScene" uid="uid://c4bq8fxe3rw0j" path="res://scenes/relic_handler/relic_handler.tscn" id="7_yp38d"]
+[ext_resource type="PackedScene" uid="uid://d0025c86k7cap" path="res://scenes/relic_handler/relic_tooltip.tscn" id="10_1xcsi"]
+
+[node name="Run" type="Node"]
+script = ExtResource("1_4767v")
+run_startup = ExtResource("2_bo7nb")
+
+[node name="Map" parent="." instance=ExtResource("1_lovcu")]
+
+[node name="CurrentView" type="Node" parent="."]
+
+[node name="TopBar" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="ColorRect" type="ColorRect" parent="TopBar"]
+custom_minimum_size = Vector2(0, 18)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.196078, 0.196078, 0.27451, 0.588235)
+
+[node name="BarItems" type="HBoxContainer" parent="TopBar"]
+custom_minimum_size = Vector2(0, 18)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/separation = 3
+
+[node name="Placeholder2" type="Control" parent="TopBar/BarItems"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HealthUI" parent="TopBar/BarItems" instance=ExtResource("4_pygve")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+show_cap = true
+
+[node name="GoldUI" parent="TopBar/BarItems" instance=ExtResource("4_wul06")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="RelicSpace" type="CenterContainer" parent="TopBar/BarItems"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="RelicHandler" parent="TopBar/BarItems/RelicSpace" instance=ExtResource("7_yp38d")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="DeckButton" parent="TopBar/BarItems" node_paths=PackedStringArray("counter") instance=ExtResource("4_1gf2n")]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("5_udrlw")
+counter = NodePath("Counter")
+
+[node name="Counter" type="Label" parent="TopBar/BarItems/DeckButton"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 11.0
+offset_right = 6.0
+offset_bottom = 17.0
+text = "99"
+horizontal_alignment = 2
+
+[node name="DeckView" parent="TopBar" instance=ExtResource("6_bkg1n")]
+unique_name_in_owner = true
+visible = false
+
+[node name="RelicTooltip" parent="TopBar" instance=ExtResource("10_1xcsi")]
+unique_name_in_owner = true
+visible = false

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://c8sbmyoeiddtx"]
+
+[ext_resource type="Script" path="res://custom_resources/card.gd" id="1_56btl"]
+[ext_resource type="Texture2D" uid="uid://cfvnpijl8e3rc" path="res://art/expose.png" id="1_sdlr8"]
+
+[resource]
+script = ExtResource("1_56btl")
+id = "burnout"
+type = 2
+rarity = 0
+target = 0
+cost = 1
+exhaust = true
+icon = ExtResource("1_sdlr8")
+tooltip_text = "[center]Does absolutely nothing
+Exhaust[/center]"

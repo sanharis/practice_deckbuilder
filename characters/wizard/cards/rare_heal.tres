@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://lwnl6y16fb18"]
+
+[ext_resource type="Texture2D" uid="uid://dqklv0kmgoptm" path="res://art/kenney_platformer_expansion/tile_0044.png" id="1_kjb5g"]
+[ext_resource type="Script" path="res://characters/wizard/cards/rare_heal.gd" id="1_ra0av"]
+[ext_resource type="AudioStream" uid="uid://vceaa4sp5uj4" path="res://art/true_strength.ogg" id="3_hnvhx"]
+
+[resource]
+script = ExtResource("1_ra0av")
+id = "wizard_heal"
+type = 1
+rarity = 2
+target = 0
+cost = 2
+exhaust = false
+icon = ExtResource("1_kjb5g")
+tooltip_text = "[center]Heal [color=GREEN]%s[/color] HP to self[/center]"
+sound = ExtResource("3_hnvhx")

@@ -1,0 +1,61 @@
+[gd_scene load_steps=17 format=3 uid="uid://bjon6uyxqknnv"]
+
+[ext_resource type="Script" path="res://scenes/enemy/enemy_action_picker.gd" id="1_q4bqy"]
+[ext_resource type="Script" path="res://enemies/le_boss/boss_buff_action.gd" id="2_wrcbk"]
+[ext_resource type="Texture2D" uid="uid://cgake1ja0gmrm" path="res://art/tile_0062_bis.png" id="3_0qq5l"]
+[ext_resource type="Script" path="res://custom_resources/intent.gd" id="4_4avhl"]
+[ext_resource type="AudioStream" uid="uid://vceaa4sp5uj4" path="res://art/true_strength.ogg" id="5_a13nl"]
+[ext_resource type="Script" path="res://enemies/le_boss/boss_great_buff_action.gd" id="6_8l23n"]
+[ext_resource type="Script" path="res://enemies/le_boss/boss_attack_action.gd" id="7_ijs63"]
+[ext_resource type="Texture2D" uid="uid://lpo0gm8p2t6i" path="res://art/attack_negative.png" id="8_7illg"]
+[ext_resource type="AudioStream" uid="uid://de2ryat1pxq6" path="res://art/enemy_attack.ogg" id="9_c7218"]
+[ext_resource type="Script" path="res://enemies/le_boss/boss_block_action.gd" id="10_nnodf"]
+[ext_resource type="Texture2D" uid="uid://oe7v35ii8vrs" path="res://art/tile_0102.png" id="11_wga5r"]
+[ext_resource type="AudioStream" uid="uid://k8m4o3hlwm7l" path="res://art/enemy_block.ogg" id="12_od08a"]
+
+[sub_resource type="Resource" id="Resource_8ij17"]
+script = ExtResource("4_4avhl")
+base_text = ""
+icon = ExtResource("3_0qq5l")
+
+[sub_resource type="Resource" id="Resource_53k4j"]
+script = ExtResource("4_4avhl")
+base_text = ""
+icon = ExtResource("3_0qq5l")
+
+[sub_resource type="Resource" id="Resource_iulqm"]
+script = ExtResource("4_4avhl")
+base_text = "%s"
+icon = ExtResource("8_7illg")
+
+[sub_resource type="Resource" id="Resource_5mny5"]
+script = ExtResource("4_4avhl")
+base_text = ""
+icon = ExtResource("11_wga5r")
+
+[node name="EnemyActionPicker" type="Node"]
+script = ExtResource("1_q4bqy")
+
+[node name="BuffAction" type="Node" parent="."]
+script = ExtResource("2_wrcbk")
+intent = SubResource("Resource_8ij17")
+sound = ExtResource("5_a13nl")
+
+[node name="GreatBuffAction" type="Node" parent="."]
+script = ExtResource("6_8l23n")
+intent = SubResource("Resource_53k4j")
+sound = ExtResource("5_a13nl")
+
+[node name="AttackAction" type="Node" parent="."]
+script = ExtResource("7_ijs63")
+intent = SubResource("Resource_iulqm")
+sound = ExtResource("9_c7218")
+type = 1
+chance_weight = 6.5
+
+[node name="BlockAction" type="Node" parent="."]
+script = ExtResource("10_nnodf")
+intent = SubResource("Resource_5mny5")
+sound = ExtResource("12_od08a")
+type = 1
+chance_weight = 3.5

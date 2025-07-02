@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WrathStatus" load_steps=3 format=3 uid="uid://bvnfr01i3bmpk"]
+
+[ext_resource type="Texture2D" uid="uid://cgake1ja0gmrm" path="res://art/tile_0062_bis.png" id="1_7f5y0"]
+[ext_resource type="Script" path="res://status_effects/wrath.gd" id="2_g6lf5"]
+
+[resource]
+script = ExtResource("2_g6lf5")
+id = "wrath"
+type = 2
+stack_type = 1
+show_stacks = true
+can_expire = false
+duration = 0
+stacks = 1
+icon = ExtResource("1_7f5y0")
+tooltip = "[center]WRATH[/center]
+[center]This unit's attacks deal %s more damage[/center]"

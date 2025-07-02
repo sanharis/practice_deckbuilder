@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BattleStats" load_steps=3 format=3 uid="uid://omldle1j8l7w"]
+
+[ext_resource type="PackedScene" uid="uid://bhabg1sxvr5xb" path="res://battles/tier_3_cyclops.tscn" id="1_2qqrx"]
+[ext_resource type="Script" path="res://custom_resources/battle_stats.gd" id="2_3wnhf"]
+
+[resource]
+script = ExtResource("2_3wnhf")
+battle_tier = 3
+weight = 10.0
+min_gold = 1500
+max_gold = 2500
+enemies = ExtResource("1_2qqrx")

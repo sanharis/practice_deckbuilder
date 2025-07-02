@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BerserkStatus" load_steps=3 format=3 uid="uid://d3chyb0ch6s1q"]
+
+[ext_resource type="Texture2D" uid="uid://df8vnr3xtkmqi" path="res://art/kenney_platformer_expansion/tile_0111.png" id="1_hk6nc"]
+[ext_resource type="Script" path="res://status_effects/berserk.gd" id="2_b4wdv"]
+
+[resource]
+script = ExtResource("2_b4wdv")
+id = "berserk"
+type = 1
+stack_type = 1
+show_stacks = false
+can_expire = false
+duration = 0
+stacks = 1
+icon = ExtResource("1_hk6nc")
+tooltip = "[center]BERSERK[/center]
+[center]This unit gains %s Wrath at the start of every turn[/center]"

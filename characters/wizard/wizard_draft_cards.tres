@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=12 format=3 uid="uid://babdyy6bgfgfx"]
+
+[ext_resource type="Script" path="res://custom_resources/card.gd" id="1_64egr"]
+[ext_resource type="Resource" uid="uid://dmjy72xf1isf8" path="res://characters/warrior/cards/common_sacrifice.tres" id="2_u6dlu"]
+[ext_resource type="Resource" uid="uid://bg4s65cb574ni" path="res://characters/wizard/cards/wizard_fireball.tres" id="3_np60h"]
+[ext_resource type="Resource" uid="uid://bofcuaotjqva3" path="res://characters/wizard/cards/wizard_block.tres" id="4_pmr77"]
+[ext_resource type="Resource" uid="uid://w74aufxky82r" path="res://characters/wizard/cards/wizard_bomb.tres" id="5_6emqo"]
+[ext_resource type="Resource" uid="uid://4lffq1wgx038" path="res://characters/warrior/cards/uncommon_crack_head.tres" id="6_thlo4"]
+[ext_resource type="Resource" uid="uid://c7e7dacn8h5g2" path="res://characters/warrior/cards/uncommon_big_block.tres" id="7_f3jso"]
+[ext_resource type="Resource" uid="uid://dipsotn76vonf" path="res://characters/warrior/cards/rare_dodge.tres" id="8_flbpv"]
+[ext_resource type="Resource" uid="uid://dxarlpqma2mri" path="res://characters/warrior/cards/rare_berserk.tres" id="9_bd31g"]
+[ext_resource type="Resource" uid="uid://lwnl6y16fb18" path="res://characters/wizard/cards/rare_heal.tres" id="10_68w3u"]
+[ext_resource type="Script" path="res://custom_resources/card_pile.gd" id="11_j70y2"]
+
+[resource]
+script = ExtResource("11_j70y2")
+cards = Array[ExtResource("1_64egr")]([ExtResource("2_u6dlu"), ExtResource("3_np60h"), ExtResource("4_pmr77"), ExtResource("5_6emqo"), ExtResource("6_thlo4"), ExtResource("7_f3jso"), ExtResource("8_flbpv"), ExtResource("9_bd31g"), ExtResource("10_68w3u")])

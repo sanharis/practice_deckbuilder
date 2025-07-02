@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ExposedStatus" load_steps=3 format=3 uid="uid://d05y5sxeswfa0"]
+
+[ext_resource type="Texture2D" uid="uid://cfvnpijl8e3rc" path="res://art/expose.png" id="1_ik6h3"]
+[ext_resource type="Script" path="res://status_effects/exposed.gd" id="1_lscij"]
+
+[resource]
+script = ExtResource("1_lscij")
+id = "exposed"
+type = 0
+stack_type = 2
+show_stacks = true
+can_expire = true
+duration = 1
+stacks = 0
+icon = ExtResource("1_ik6h3")
+tooltip = "[center]EXPOSED[/center]
+[center]This unit takes 50%% more combat damage for %s turns[/center]"

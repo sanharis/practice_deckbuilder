@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://w74aufxky82r"]
+
+[ext_resource type="Texture2D" uid="uid://c153kl1dkhjt3" path="res://art/kenney_town_expansion/tile_0105.png" id="1_2ssrm"]
+[ext_resource type="Script" path="res://characters/wizard/cards/wizard_bomb.gd" id="1_o84hr"]
+[ext_resource type="AudioStream" uid="uid://dixklg6g4jnsq" path="res://art/slash.ogg" id="3_6gx7e"]
+
+[resource]
+script = ExtResource("1_o84hr")
+id = "wizard_bomb"
+type = 0
+rarity = 1
+target = 2
+cost = 2
+exhaust = true
+icon = ExtResource("1_2ssrm")
+tooltip_text = "[center]Deal [color=RED]%s[/color] damage to all enemies[/center]
+[center]Exhaust[/center]"
+sound = ExtResource("3_6gx7e")

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dmjy72xf1isf8"]
+
+[ext_resource type="Texture2D" uid="uid://dhasgqt5hc5ug" path="res://art/draw.png" id="1_74pge"]
+[ext_resource type="Script" path="res://characters/warrior/cards/common_sacrifice.gd" id="2_gog3j"]
+
+[resource]
+script = ExtResource("2_gog3j")
+id = "common_inspiration"
+type = 2
+rarity = null
+target = null
+cost = null
+exhaust = null
+icon = ExtResource("1_74pge")
+tooltip_text = "[center]Take [color=red]%s[/color] damage to draw 2 cards[/center]"
